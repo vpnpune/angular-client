@@ -1,0 +1,124 @@
+<section class="content">
+  <div class="container-fluid">
+    <div class="block-header">
+      <h2> Registration</h2>
+    </div>
+    <div class="clearfix row">
+      <div class="col-md-6">
+
+        <div class="form-group form-float">
+
+          <div class="form-line">
+            <input type="text" class="form-control" [(ngModel)]="user.fname" />
+            <label class="form-label">First Name</label>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+
+        <div class="form-group form-float">
+
+          <div class="form-line">
+            <input type="text" class="form-control" [(ngModel)]="user.lname" />
+            <label class="form-label">Last Name</label>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="row clearfix">
+      <div class="col-md-6">
+
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="material-icons">person</i>
+          </span>
+          <div class="form-line">
+            <input type="text" class="form-control" placeholder="Username" [(ngModel)]="user.userId" />
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="material-icons">lock</i>
+          </span>
+          <div class="form-line">
+            <input type="password" class="form-control" placeholder="Password" [(ngModel)]="user.password">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row clearfix">
+      <div class="col-md-6">
+
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="material-icons">email</i>
+          </span>
+          <div class="form-line">
+            <input type="text" class="form-control" placeholder="Email" [(ngModel)]="user.emailId">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="material-icons">phone_iphone</i>
+          </span>
+          <div class="form-line">
+            <input type="text" class="form-control" placeholder="Mobile" [(ngModel)]="user.mobile">
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="row clearfix">
+      <div class="col-md-6">
+        <div class="form-group">
+          <div class="form-line">
+            <input type="text" class="datepicker form-control" [(ngModel)]="user.dateOfBirth" placeholder="Choose Date of Birth...">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="demo-radio-button">
+          <input name="genderGroup" type="radio" id="radioMale" value="MALE" class="radio-col-blue" [(ngModel)]="user.gender" />
+          <label for="radioMale">Male</label>
+          <input name="genderGroup" type="radio" id="radioFemale" value="FEMALE" class="radio-col-pink" [(ngModel)]="user.gender" />
+          <label for="radioFemale">Female</label>
+        </div>
+      </div>
+    </div>
+    <div class="row clearfix">
+      <div class="col-sm-12">
+        <select class="form-control show-tick" [(ngModel)]="user.selectedRole">
+          <option value="">-- You are an --</option>
+          <option *ngFor="let role of roles" [value]="role">{{role}}</option>
+         
+        </select>
+      </div>
+    </div>
+    <div class="row clearfix">
+      <div class="col-sm-12">
+
+        <div class="form-group">
+          <br/>
+          <input type="checkbox" id="checkbox" name="checkbox">
+          <label for="checkbox">I have read and accept the terms</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row clearfix">
+      <input class="btn btn-block btn-lg bg-blue waves-effect" type="button" (click)="save()" value="SIGN UP" />
+    </div>
+
+  </div>
+  
+</section>

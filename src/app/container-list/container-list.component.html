@@ -1,0 +1,48 @@
+<!-- <app-container [container]="selectedContainer"></app-container> -->
+<div class="container">
+  <div class="row">
+    <div class="col-md">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Containers</mat-card-title>
+
+            </mat-card-header>
+            <mat-card-content>
+
+
+                <table class="table table-bordered table-responsive">
+                    <thead>
+                        <tr>
+                            <th>Sr. No</th>
+                            <th>Container Name</th>
+                            <th>Description</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let container of containerList; let i = index">
+                            <td>{{i+1}}</td>
+                            <td>{{container.name}}</td>
+                            <td>{{container.description}}</td>
+                            <td><button mat-icon-button color="accent" type="button" class="reset-btn-margin" matTooltip="Edit" matTooltipPosition="below" (click)="onEdit(i,container)">
+                                    <mat-icon aria-label="edit">edit</mat-icon>
+                                </button></td>
+                            <td><button mat-icon-button color="warn" type="button" class="reset-btn-margin" matTooltip="Delete" matTooltipPosition="below" (click)="onDelete(i,container)">
+                                    <mat-icon aria-label="delete">delete_forever</mat-icon>
+                                </button></td>
+                        </tr>
+                        <tr *ngIf="containerList.length ==0">
+                                <td colspan="5">No Item(s) Found</td>
+                                
+                            </tr>
+                    </tbody>
+                </table>
+            </mat-card-content>
+        </mat-card>
+
+    </div>
+</div>
+
+</div>

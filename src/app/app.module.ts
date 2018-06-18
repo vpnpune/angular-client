@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import {ReactiveFormsModule} from "@angular/forms";
+
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { AppRoutes } from './app.routing';
@@ -18,6 +20,9 @@ import { DemoMaterialModule} from './demo-material-module';
 import { SharedModule } from './shared/shared.module';
 import { SpinnerComponent } from './shared/spinner.component';
 import { LoginComponent } from './login/login.component';
+import { ContainerComponent } from './container/container.component';
+import { ContainerListComponent } from './container-list/container-list.component';
+
 
 @NgModule({
   declarations: [
@@ -25,13 +30,15 @@ import { LoginComponent } from './login/login.component';
     FullComponent,
     AppHeaderComponent,
     SpinnerComponent,
-    AppSidebarComponent  
+    AppSidebarComponent,
+    ContainerListComponent  
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     DemoMaterialModule,
     FormsModule,
+    ReactiveFormsModule,
     FlexLayoutModule,  
     HttpClientModule,
     SharedModule,  

@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-sm">
             <div class="form-group">
-                <form [formGroup]="form" (ngSubmit)="onSave()">
+                <form (ngSubmit)="onSave()" novalidate #f="ngForm">
 
                     <mat-card>
                         <mat-card-header>
@@ -15,11 +15,11 @@
                         <mat-card-content>
                             <mat-form-field>
                                 <mat-label>Container Name</mat-label>
-                                <input matInput placeholder="Enter Container Name" formControlName="name">
+                                <input matInput placeholder="Enter Container Name" [(ngModel)]="container.containerName" name="containerName" #containerName="ngModel" required>
                             </mat-form-field>
                             <mat-form-field>
                                 <mat-label>Container Description</mat-label>
-                                <textarea matInput placeholder="Enter Description" formControlName="description" maxlength="255"></textarea>
+                                <textarea matInput placeholder="Enter Description" [(ngModel)]="container.containerDescription" maxlength="255" name="containerDescription" #containerDescription="ngModel" required></textarea>
                             </mat-form-field>
                             <div>
 
@@ -27,13 +27,11 @@
                                     <button mat-fab color="warn" type="button" class="reset-btn-margin" matTooltip="Reset" matTooltipPosition="below" (click)="onReset(container)">
                                         <mat-icon aria-label="reset">clear</mat-icon>
                                     </button>
-                                    <button type="submit" [disabled]="!form.valid" mat-fab color="primary" matTooltip="Save" matTooltipPosition="below">
+                                    <button type="submit" mat-fab color="primary" matTooltip="Save" matTooltipPosition="below" [disabled] = "f.invalid">
                                         <mat-icon aria-label="Save">done</mat-icon>
                                     </button>
                                 </div>
                             </div>
-
-
                         </mat-card-content>
                     </mat-card>
 
@@ -42,5 +40,6 @@
             </div>
         </div>
     </div>
+    <!-- <app-container-list [tableHeaders]="tableHeaderList" [tableBody]="tableHeaderBody"></app-container-list> -->
     
 </div>

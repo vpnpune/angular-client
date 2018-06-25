@@ -1,5 +1,5 @@
 export class Container {
     id: number;
-    name: string;
-    description :string;
+    containerName: string;
+    containerDescription :string;
   }

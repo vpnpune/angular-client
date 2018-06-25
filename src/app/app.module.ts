@@ -19,10 +19,6 @@ import { DemoMaterialModule} from './demo-material-module';
 
 import { SharedModule } from './shared/shared.module';
 import { SpinnerComponent } from './shared/spinner.component';
-import { LoginComponent } from './login/login.component';
-import { ContainerComponent } from './container/container.component';
-import { ContainerListComponent } from './container-list/container-list.component';
-
 
 @NgModule({
   declarations: [
@@ -31,7 +27,6 @@ import { ContainerListComponent } from './container-list/container-list.componen
     AppHeaderComponent,
     SpinnerComponent,
     AppSidebarComponent,
-    ContainerListComponent  
   ],
   imports: [
     BrowserModule,

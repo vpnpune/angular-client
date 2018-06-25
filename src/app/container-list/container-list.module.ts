@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 // Issue : FormsModule declared in APP but still requires here 
 import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from "@angular/forms";
 
 import { CommonModule } from '@angular/common';
 import { DemoMaterialModule } from '../demo-material-module';
@@ -17,11 +16,15 @@ import { ContainerListRoutes } from './container-list.routing';
     CommonModule,
     DemoMaterialModule,
     FlexLayoutModule,
-    FormsModule, ReactiveFormsModule,
+    FormsModule,
     RouterModule.forChild(ContainerListRoutes)
 
   ],
-  declarations: [ContainerListComponent]
+  declarations: [ContainerListComponent],
+  providers: [],
+  exports: [
+    ContainerListComponent
+  ]
 })
 
 export class ContainerListModule { }

@@ -1,8 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Container } from '../model/container';
-import { MatSnackBar } from '@angular/material';
 import { ContainerService } from '../services/container.service';
 
 @Component({
@@ -12,43 +9,27 @@ import { ContainerService } from '../services/container.service';
     styleUrls: ['container.component.scss']
 })
 export class ContainerComponent implements OnInit {
-    @Input() container: Container;
 
-    form: FormGroup;
-    name = new FormControl("", Validators.required);
-    // view object
-    //container = new Container();
-  
+    @ViewChild("f") form: any;
+    container:Container
+    tableHeaderList: string[] = [];
+    tableBodyList: Container[] = [];
 
-    constructor(fb: FormBuilder, public snackBar: MatSnackBar, private containerService: ContainerService) {
-        this.form = fb.group({
-            "name": this.name,
-            "description": ["", Validators.required]
-        });
-
+    constructor(private containerService: ContainerService) {
+        console.log("container Called");
+        this.tableHeaderList = ["Sr. No", "Name", "Description"];
     }
 
     ngOnInit() {
-        //this.containerService.getContainers();
-        // this.containerService.getContainers()
-        //     .subscribe(containers => this.containerList = containers);
-    }
-    onSave(): void {
-
         this.container = new Container();
-
-        this.container.name = this.form.get('name').value;
-        this.container.description = this.form.get('description').value;
-        //Call Service
-        //this.containerList.push(this.container);
-        this.container = null;
-        //this.openSnackBar("Saved", "Success");
-
+    }
+    
+    onSave(): void {
+        console.log('this.container: ', this.container);
+        this.tableBodyList.push(this.container);
     }
     onReset(): void {
-        console.log('Reset click');
-        this.form.get('description').setValue('');
-        this.form.get('name').setValue('');
+        this.form.reset();
     }
     
 }

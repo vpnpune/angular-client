@@ -1,5 +1,3 @@
-import { ListModule } from './../list/list.module';
-import { ContainerRoutingModule } from './container-routing.module';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -9,7 +7,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
 // This Module's Components
-import { ContainerComponent } from './container.component';
+import { ListComponent } from './list.component';
 
 @NgModule({
     imports: [
@@ -18,16 +16,14 @@ import { ContainerComponent } from './container.component';
       FlexLayoutModule,
       FormsModule,
       RouterModule,
-      ContainerRoutingModule,
-      ListModule
     ],
     declarations: [
-        ContainerComponent,
+        ListComponent,
     ],
     exports: [
-        ContainerComponent,
+        ListComponent,
     ]
 })
-export class ContainerModule {
+export class ListModule {
 
 }

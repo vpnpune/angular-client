@@ -1,9 +1,10 @@
+import { ListModule } from './list/list.module';
+import { ContainerModule } from './container/container.module';
 import * as $ from 'jquery';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import {ReactiveFormsModule} from "@angular/forms";
 
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
@@ -33,11 +34,12 @@ import { SpinnerComponent } from './shared/spinner.component';
     BrowserAnimationsModule,
     DemoMaterialModule,
     FormsModule,
-    ReactiveFormsModule,
-    FlexLayoutModule,  
+    FlexLayoutModule,
     HttpClientModule,
-    SharedModule,  
-    RouterModule.forRoot(AppRoutes)  
+    SharedModule,
+    ContainerModule,
+    ListModule,
+    RouterModule.forRoot(AppRoutes)
   ],
   providers: [
   {

@@ -12,7 +12,6 @@ import { LoginRoutes } from './login.routing';
     DemoMaterialModule,
       FlexLayoutModule,
       RouterModule.forChild(LoginRoutes)
-    
   ],
   declarations: [ LoginComponent ]
 })

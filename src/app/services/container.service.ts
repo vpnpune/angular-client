@@ -9,7 +9,6 @@ export class ContainerService {
 
   constructor() { }
   getContainers():  Observable<Container[]> {
-    console.log("In get Containers")
     let containerList: Container[] = [];
 
     return null;

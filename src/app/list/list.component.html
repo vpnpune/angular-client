@@ -1,29 +1,26 @@
 <!--component html goes here -->
 <!-- <app-container [container]="selectedContainer"></app-container> -->
-<div class="container">
+<div class="container" *ngIf="tableBody?.length > 0">
   <div class="row">
     <div class="col-md">
       <mat-card>
-        <mat-card-header>
+        <!-- <mat-card-header>
           <mat-card-title>Containers</mat-card-title>
-        </mat-card-header>
+        </mat-card-header> -->
 
         <mat-card-content>
           <table class="table table-bordered table-responsive">
             <thead>
               <tr>
-                <th>Sr. No</th>
-                <th>Container Name</th>
-                <th>Description</th>
-                <th>Edit</th>
-                <th>Delete</th>
+                <th *ngFor='let header of tableHeaders'>{{header}}</th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let container of tableBody; let i = index">
+              <tr *ngFor='let item of tableBody;let i=index'>
                 <td>{{i+1}}</td>
-                <td>{{container.name}}</td>
-                <td>{{container.description}}</td>
+                <ng-template ngFor let-key [ngForOf]="keys(item)" let-i="index" [ngForTrackBy]="trackById">
+                    <td>{{item[key]}}</td>
+                </ng-template>
                 <td>
                   <button mat-icon-button color="accent" type="button" class="reset-btn-margin" matTooltip="Edit" matTooltipPosition="below"
                     (click)="onEdit(i,container)">

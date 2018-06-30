@@ -8,6 +8,7 @@ import { NgModule } from '@angular/core';
 
 // This Module's Components
 import { ListComponent } from './list.component';
+import { ValuesPipeModule } from '../pipe/values-pipe.module';
 
 @NgModule({
     imports: [
@@ -16,6 +17,7 @@ import { ListComponent } from './list.component';
       FlexLayoutModule,
       FormsModule,
       RouterModule,
+      ValuesPipeModule
     ],
     declarations: [
         ListComponent,

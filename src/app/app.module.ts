@@ -16,10 +16,13 @@ import { FullComponent } from './layouts/full/full.component';
 import { AppHeaderComponent } from './layouts/full/header/header.component';
 import { AppSidebarComponent } from './layouts/full/sidebar/sidebar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DemoMaterialModule} from './demo-material-module';
+import { DemoMaterialModule } from './demo-material-module';
 
 import { SharedModule } from './shared/shared.module';
 import { SpinnerComponent } from './shared/spinner.component';
+import { CommonListService } from './services/common-list.service';
+import { ValuesPipe } from './pipe/values-pipe.pipe';
+import { ValuesPipeModule } from './pipe/values-pipe.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,7 @@ import { SpinnerComponent } from './shared/spinner.component';
     FullComponent,
     AppHeaderComponent,
     SpinnerComponent,
-    AppSidebarComponent,
+    AppSidebarComponent
   ],
   imports: [
     BrowserModule,
@@ -39,13 +42,15 @@ import { SpinnerComponent } from './shared/spinner.component';
     SharedModule,
     ContainerModule,
     ListModule,
+    ValuesPipeModule,
     RouterModule.forRoot(AppRoutes)
   ],
   providers: [
-  {
-    provide: LocationStrategy,
-    useClass: HashLocationStrategy
-  }
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy
+    },
+    CommonListService
   ],
   bootstrap: [AppComponent]
 })

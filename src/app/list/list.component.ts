@@ -1,22 +1,29 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { CommonListService } from '../services/common-list.service';
 
 @Component({
-    moduleId: module.id,
-    // tslint:disable-next-line:component-selector
-    selector: 'list',
-    templateUrl: 'list.component.html',
-    styleUrls: ['list.component.scss']
+  moduleId: module.id,
+  // tslint:disable-next-line:component-selector
+  selector: 'list',
+  templateUrl: 'list.component.html',
+  styleUrls: ['list.component.scss']
 })
 export class ListComponent implements OnInit {
 
   @Input() tableHeaders: string[];
   @Input() tableBody: any[] = [];
 
-  constructor() {
-    console.log(this.tableBody);
-   }
+  constructor(private listService: CommonListService) {
+
+  }
 
   ngOnInit() {
-    console.log(this.tableBody);
+    this.listService.parentSubject.subscribe(result => {
+      this.tableBody = result;
+    });
+  }
+
+  keys(obj: any) : Array<string> {
+    return Object.keys(obj);
   }
 }

@@ -1,0 +1,65 @@
+<!--component html goes here -->
+<!--component html goes here -->
+<div class="container">
+    <!-- Content here -->
+    <div class="row">
+        <div class="col-sm">
+            <div class="form-group">
+                <form (ngSubmit)="onSave()" novalidate #f="ngForm">
+
+                    <mat-card>
+                        <mat-card-header>
+                            <!-- <div mat-card-avatar class="example-header-image"></div> -->
+                            <mat-card-title>Document Type</mat-card-title>
+                            <mat-card-subtitle>Master Definition</mat-card-subtitle>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <mat-form-field>
+                                <mat-label>Document Type Name</mat-label>
+                                <input matInput placeholder="Enter Document Type Name" [(ngModel)]="documentType.typeName" name="typeName" #typeName="ngModel"
+                                    required>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <mat-label>Document Type Description</mat-label>
+                                <textarea matInput placeholder="Enter Description" [(ngModel)]="documentType.description" maxlength="255" name="description"
+                                    #description="ngModel" required></textarea>
+                            </mat-form-field>
+                            <mat-form-field>
+                                    <mat-label>Document max Size</mat-label>
+
+                                    <input matInput type="number" min="1" placeholder="Enter Max Size" [(ngModel)]="documentType.maxSize" name="maxSize" #maxSize="ngModel"
+                                    required> </mat-form-field>
+
+                            <mat-form-field class="demo-chip-list">
+                                <mat-chip-list #chipList>
+                                    <mat-chip  color="primary" selected="true" *ngFor="let format of documentType.acceptableFormats" [selectable]="selectable" [removable]="removable" (removed)="remove(format)">
+                                        {{format}}
+                                        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                                    </mat-chip>
+                                    <input placeholder="Enter Acceptable File Formats" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                        [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)" required/>
+                                </mat-chip-list>
+                            </mat-form-field>
+                            <div>
+
+                                <div class="col-sm-3 text-right">
+                                    <button mat-fab color="warn" type="button" class="reset-btn-margin" matTooltip="Reset" matTooltipPosition="below" (click)="onReset(documentType)">
+                                        <mat-icon aria-label="reset">clear</mat-icon>
+                                    </button>
+                                    <button type="submit" mat-fab color="primary" matTooltip="Save" matTooltipPosition="below" [disabled]="f.invalid">
+                                        <mat-icon aria-label="Save">done</mat-icon>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </mat-card-content>
+                    </mat-card>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <list [tableHeaders]="tableHeaderList" [tableBody]="tableHeaderBody"></list>
+
+</div>

@@ -1,5 +1,7 @@
 import { ListModule } from './list/list.module';
 import { ContainerModule } from './container/container.module';
+import { StorageConditionModule } from './storage-condition/storage-condition.module';
+
 import * as $ from 'jquery';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -38,6 +40,8 @@ import { SpinnerComponent } from './shared/spinner.component';
     HttpClientModule,
     SharedModule,
     ContainerModule,
+    StorageConditionModule,
+
     ListModule,
     RouterModule.forRoot(AppRoutes)
   ],

@@ -10,22 +10,22 @@
                   <mat-card>
                       <mat-card-header>
                           <!-- <div mat-card-avatar class="example-header-image"></div> -->
-                          <mat-card-title>Container</mat-card-title>
+                          <mat-card-title>Storage Condition</mat-card-title>
                           <mat-card-subtitle>Master Definition</mat-card-subtitle>
                       </mat-card-header>
                       <mat-card-content>
                           <mat-form-field>
-                              <mat-label>Container Name</mat-label>
-                              <input matInput placeholder="Enter Container Name" [(ngModel)]="container.containerName" name="containerName" #containerName="ngModel" required>
+                              <mat-label>Storage Condition Name</mat-label>
+                              <input matInput placeholder="Enter Storage Condition Name" [(ngModel)]="storageCondition.storageConditionName" name="storageConditionName" #storageConditionName="ngModel" required>
                           </mat-form-field>
                           <mat-form-field>
-                              <mat-label>Container Description</mat-label>
-                              <textarea matInput placeholder="Enter Description" [(ngModel)]="container.containerDescription" maxlength="255" name="containerDescription" #containerDescription="ngModel" required></textarea>
+                              <mat-label>Storage Condition Description</mat-label>
+                              <textarea matInput placeholder="Enter Description" [(ngModel)]="storageCondition.storageConditionDescription" maxlength="255" name="storageConditionDescription" #storageConditionDescription="ngModel" required></textarea>
                           </mat-form-field>
                           <div>
 
                               <div class="col-sm-3 text-right">
-                                  <button mat-fab color="warn" type="button" class="reset-btn-margin" matTooltip="Reset" matTooltipPosition="below" (click)="onReset(container)">
+                                  <button mat-fab color="warn" type="button" class="reset-btn-margin" matTooltip="Reset" matTooltipPosition="below" (click)="onReset(storageCondition)">
                                       <mat-icon aria-label="reset">clear</mat-icon>
                                   </button>
                                   <button type="submit" mat-fab color="primary" matTooltip="Save" matTooltipPosition="below" [disabled] = "f.invalid">

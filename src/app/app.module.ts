@@ -1,5 +1,7 @@
 import { ListModule } from './list/list.module';
 import { ContainerModule } from './container/container.module';
+import { StorageConditionModule } from './storage-condition/storage-condition.module';
+
 import * as $ from 'jquery';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -41,6 +43,8 @@ import { ValuesPipeModule } from './pipe/values-pipe.module';
     HttpClientModule,
     SharedModule,
     ContainerModule,
+    StorageConditionModule,
+
     ListModule,
     ValuesPipeModule,
     RouterModule.forRoot(AppRoutes)

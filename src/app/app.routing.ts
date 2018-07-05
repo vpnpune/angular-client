@@ -23,7 +23,15 @@ export const AppRoutes: Routes = [{
   }, {
     path: 'container',
     loadChildren: './container/container.module#ContainerModule'
+  },
+  {
+    path: 'storage-condition',
+    loadChildren: './storage-condition/storage-condition.module#StorageConditionModule'
+  },
+  {
+    path: 'document-type',
+    loadChildren: './document-type/document-type.module#DocumentTypeModule'
   }
-]
+  ]
 }];
 

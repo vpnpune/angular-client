@@ -8,8 +8,11 @@ export interface Menu {
 }
 
 const MENUITEMS = [
-    {state: 'starter', name: 'Home', type: 'link', icon: 'av_timer' },
+    {state: 'starter', name: 'Master', type: 'link', icon: 'av_timer' },
     {state: 'container', name: 'Container', type: 'link', icon: 'view_comfy' },
+    {state: 'storage-condition', name: 'Storage Condition', type: 'link', icon: 'crop_7_5' },
+    {state: 'document-type', name: 'Document Type', type: 'link', icon: 'view_headline' },
+
     // {state: 'button', type: 'link', name: 'Buttons', icon: 'crop_7_5'},
     // {state: 'grid', type: 'link', name: 'Grid List', icon: 'view_comfy'},
     // {state: 'lists', type: 'link', name: 'Lists', icon: 'view_list'},

@@ -25,6 +25,7 @@ import { SpinnerComponent } from './shared/spinner.component';
 import { CommonListService } from './services/common-list.service';
 import { ValuesPipe } from './pipe/values-pipe.pipe';
 import { ValuesPipeModule } from './pipe/values-pipe.module';
+import { ClientComponent } from './client/client.component';
 
 @NgModule({
   declarations: [

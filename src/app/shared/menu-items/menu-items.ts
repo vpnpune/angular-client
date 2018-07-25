@@ -12,6 +12,7 @@ const MENUITEMS = [
     {state: 'container', name: 'Container', type: 'link', icon: 'view_comfy' },
     {state: 'storage-condition', name: 'Storage Condition', type: 'link', icon: 'crop_7_5' },
     {state: 'document-type', name: 'Document Type', type: 'link', icon: 'view_headline' },
+    {state: 'client', name: 'Clients', type: 'link', icon: 'view_headline' },
 
     // {state: 'button', type: 'link', name: 'Buttons', icon: 'crop_7_5'},
     // {state: 'grid', type: 'link', name: 'Grid List', icon: 'view_comfy'},

@@ -1,0 +1,134 @@
+<!--component html goes here -->
+<!--component html goes here -->
+<div class="container">
+  <!-- Content here -->
+  <div class="row">
+    <div class="col-sm">
+      <div class="form-group">
+        <form (ngSubmit)="onSave()" novalidate #f="ngForm">
+
+
+          <mat-card>
+            <mat-card-header>
+              <!-- <div mat-card-avatar class="example-header-image"></div> -->
+              <mat-card-title>Client</mat-card-title>
+              <mat-card-subtitle>Add your new clients here...</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <h5>Client Details</h5>
+              <hr/>
+
+
+              <mat-form-field>
+                <mat-label>Client Name</mat-label>
+                <input matInput placeholder="Enter Client Name" [(ngModel)]="client.name" name="name" #name="ngModel" required>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Client Alias</mat-label>
+                <input matInput placeholder="Enter Alias" [(ngModel)]="client.alias" maxlength="10" name="alias" #alias="ngModel" required>
+              </mat-form-field>
+
+              <div class="col-lg-6">
+                <h5>Contact </h5>
+                <hr/>
+                <mat-form-field>
+                  <mat-label>Client's Telephone</mat-label>
+                  <input matInput placeholder="Enter Client's Telephone Number" [(ngModel)]="client.clientContact.telephone" maxlength="15"
+                    name="clientTelephone" #clientTelephone="ngModel" required>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Client's Contact No</mat-label>
+                  <input matInput placeholder="Enter Client's Contact No" [(ngModel)]="client.clientContact.contactNo" maxlength="10" name="clientContactNo"
+                    #clientContactNo="ngModel" required>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Client's Email</mat-label>
+                  <input matInput placeholder="Enter Client's Email" [(ngModel)]="client.clientContact.email" maxlength="255" type="email" name="clientEmail"
+                    #clientEmail="ngModel" required>
+                </mat-form-field>
+              </div>
+              <div class="col-lg-6">
+                <h5>Address</h5>
+                <hr/>
+                <mat-form-field>
+                  <mat-label>Line 1</mat-label>
+                  <input matInput placeholder="Address Line 1" [(ngModel)]="client.clientAddress.line1" maxlength="50" name="addressLine1"
+                    #addressLine1="ngModel" required>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Line 2</mat-label>
+                  <input matInput placeholder="Address Line 2" [(ngModel)]="client.clientAddress.line2" maxlength="50" name="addressLine2"
+                    #addressLine2="ngModel" required>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Line 3</mat-label>
+                  <input matInput placeholder="Address Line 3" [(ngModel)]="client.clientAddress.line3" maxlength="50" name="addressLine3" #addressLine3="ngModel">
+                  </mat-form-field>
+
+                  <mat-form-field>
+                    <mat-select placeholder="State" [(ngModel)]="client.clientAddress.state" name="addressState" #addressState="ngModel">
+                      <mat-option *ngFor="let state of stateList" [value]="state">
+                        {{state.name}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                
+                  <mat-form-field>
+                    <mat-select placeholder="Country" [(ngModel)]="client.clientAddress.country" name="addressCountry" #addressCountry="ngModel">
+                      <mat-option *ngFor="let country of countryList" [value]="country">
+                        {{country.name}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+
+              </div>
+
+
+              <h5>Contact Person</h5>
+              <hr/>
+              <mat-form-field>
+                <mat-label>Contact Person Name</mat-label>
+                <input matInput placeholder="Enter Contact Person Name" [(ngModel)]="client.contactPerson.name" maxlength="50" name="contactPersonName"
+                  #contactPersonName="ngModel" required>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Position</mat-label>
+                <input matInput placeholder="Enter Contact Person Position" [(ngModel)]="client.contactPerson.position" maxlength="50" name="contactPersonPosition"
+                  #contactPersonPosition="ngModel" required>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Contact No</mat-label>
+                <input matInput placeholder="Enter Contact Person's Contact No" [(ngModel)]="client.contactPerson.contact.contactNo" maxlength="10"
+                  name="contactPersonContactNo" #contactPersonContactNo="ngModel" required>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Enter Contact Person's Email" [(ngModel)]="client.contactPerson.contact.email" maxlength="255"
+                  type="email" name="contactPersonEmail" #contactPersonEmail="ngModel" required>
+              </mat-form-field>
+
+
+
+              <div>
+
+                <div class="col-sm-3 text-right">
+                  <button mat-fab color="warn" type="button" class="reset-btn-margin" matTooltip="Reset" matTooltipPosition="below" (click)="onReset(client)">
+                    <mat-icon aria-label="reset">clear</mat-icon>
+                  </button>
+                  <button type="submit" mat-fab color="primary" matTooltip="Save" matTooltipPosition="below" [disabled]="f.invalid">
+                    <mat-icon aria-label="Save">done</mat-icon>
+                  </button>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <list [tableHeaders]="tableHeaderList"></list>
+
+</div>

@@ -31,6 +31,10 @@ export const AppRoutes: Routes = [{
   {
     path: 'document-type',
     loadChildren: './document-type/document-type.module#DocumentTypeModule'
+  },
+  {
+    path: 'client',
+    loadChildren: './client/client.module#ClientModule'
   }
   ]
 }];
